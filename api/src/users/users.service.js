@@ -25,7 +25,11 @@ class UserService {
   }
 
   static remove (userId) {
-    return Usuarios.destroy(userId)
+    return Usuarios.destroy({
+      where: {
+        id: userId
+      }
+    })
   }
 }
 

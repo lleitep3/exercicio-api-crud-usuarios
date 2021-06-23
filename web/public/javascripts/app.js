@@ -1,26 +1,32 @@
-const BASE_URL = 'http://localhost:3000'
+function mountHTML (users) {
+  const rows = users.map(UserTableRow.render).join('')
 
-function getUsers () {
-  return fetch(`${BASE_URL}/usuarios`).then(response => response.json())
+  const tBody = document.querySelector('tbody')
+  tBody.innerHTML = rows
 }
 
-function createRow (user) {
-  return `<tr> \
-    <td> ${user.nome} </td> \
-    <td> ${user.email} </td> \
-    <td> ${user.telefone} </td> \
-    <td> ${user.status} </td> \
-    <td> ${user.createdAt} </td> \
-  </tr> \
-  `
+function bindEvents () {
+  const btn = document.querySelector('button.btn.delete')
+
+  btn.addEventListener('click', async event => {
+    const { userId } = event.currentTarget.dataset
+
+    await UsersService.removeById(userId)
+
+    renderScreen()
+  })
+}
+
+async function renderScreen () {
+  const users = await UsersService.getAll()
+  mountHTML(users)
+  bindEvents()
 }
 
 async function initialize () {
-  const users = await getUsers()
-
-  const tBody = document.querySelector('tbody')
-  const html = users.map(createRow).join('')
-  tBody.innerHTML = html
+  await renderScreen()
 }
 
-initialize()
+window.onload = function () {
+  initialize()
+}

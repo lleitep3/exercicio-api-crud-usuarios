@@ -20,7 +20,12 @@
   </header>
 
   <section class="home-content">
-    <section class="max-width-600 centered">
+    <section class="max-width-800 centered">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <input class="form-control me-2" type="search" placeholder="filtrar" aria-label="filtrar">
+      </nav>
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -29,10 +34,12 @@
             <th>Telefone</th>
             <th>Status</th>
             <th>Criado em</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td> - </td>
             <td> - </td>
             <td> - </td>
             <td> - </td>
@@ -44,8 +51,11 @@
     </section>
   </section>
 
-  <script src="javascripts/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+  <script src="javascripts/users/users.service.js"></script>
+  <script src="javascripts/users/UserTableRow.component.js"></script>
+  <script src="javascripts/app.js"></script>
 </body>
 
 </html>

@@ -35,7 +35,31 @@ header {
   margin: 0 auto;
 }
 
-.max-width-600 {
+.max-width-800 {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
+}
+
+tr.inactive {
+  background: #ff000057;
+}
+
+tr.active {
+  background: #54ff0057;
+}
+
+.btn.delete {
+  background: #bbb;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.delete:hover {
+  background: #ddd;
+}
+
+.btn.delete:active {
+  background: #eee;
 }
