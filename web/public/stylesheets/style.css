@@ -63,3 +63,7 @@ tr.active {
 .btn.delete:active {
   background: #eee;
 }
+
+.hide {
+  display: none;
+}

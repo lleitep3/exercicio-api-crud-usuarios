@@ -2,17 +2,7 @@ const BASE_URL = 'http://localhost:3000'
 
 class UsersService {
   static getAll () {
-    return fetch(`${BASE_URL}/usuarios`)
-      .then(response => response.json())
-      .then(users =>
-        users.map(user => {
-          if ([1, 2].includes(user.id)) {
-            user.status = true
-          }
-
-          return user
-        })
-      )
+    return axios.get(`${BASE_URL}/usuarios`).then(response => response.data)
   }
 
   static removeById (userId) {

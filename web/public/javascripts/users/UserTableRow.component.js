@@ -10,7 +10,7 @@ class UserTableRow {
 
     const actionButtons = UserTableRow.getActionButtons(user)
 
-    return `<tr class="${statusClass}"> \
+    return `<tr class="${statusClass}" data-user='${JSON.stringify(user)}'> \
         <td> ${user.nome} </td> \
         <td> ${user.email} </td> \
         <td> ${user.telefone} </td> \
